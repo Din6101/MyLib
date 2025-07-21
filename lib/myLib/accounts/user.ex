@@ -5,11 +5,10 @@ defmodule MyLib.Accounts.User do
   schema "users" do
     field :name, :string
     field :age, :integer
-
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
+  # Remove registration and password changeset logic, keep only basic changeset
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:name, :age])
